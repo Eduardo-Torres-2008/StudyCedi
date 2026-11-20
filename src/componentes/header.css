@@ -1,0 +1,42 @@
+header {
+    background-color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+header nav {
+    display: flex;
+    gap: 25px;
+}
+
+
+header nav a {
+    color: rgb(55, 123, 224);
+    text-decoration: none;
+    font-size: 17px;
+    padding: 8px 12px;
+    transition: 0.3s;
+    border-right: 1px solid rgb(0, 0, 0);
+    text-align: center;
+    justify-content: center;
+}
+
+.user-link{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 17px;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+.house-link{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 17px;
+    padding: 8px 12px;
+    transition: 0.3s;
+    border-right: 1px solid rgb(0, 0, 0);
+}
