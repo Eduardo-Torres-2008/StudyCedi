@@ -1,68 +1,66 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
-const tareasFalsas = [
-  { id: 1, texto: 'Mesa CMEM' },
-  { id: 2, texto: 'Terminar el proyecto de React' },
-  { id: 3, texto: 'Proyecto TDAD' }
-]
+import { useTareas, MATERIAS_DISPONIBLES } from '../context/TareasContext'
 
 function EditarTarea() {
+  const { tareas, editarTarea } = useTareas()
   const [info, setInfo] = useState('')
+  const [fecha, setFecha] = useState('')
+  const [materia, setMateria] = useState('')
   const [sele, setSele] = useState('')
   const [tareaElegida, setTareaElegida] = useState(null)
   const navigate = useNavigate()
 
   function choosen(evento) {
-    evento.preventDefault() // Con paréntesis para evitar recarga
-
-    // Restamos 1 porque el usuario escribe 1, 2 o 3, pero el arreglo empieza en 0
+    evento.preventDefault()
     const indice = Number(sele) - 1
-    const encontrada = tareasFalsas[indice]
+    const encontrada = tareas[indice]
 
     if (encontrada) {
       setTareaElegida(encontrada)
-      setInfo(encontrada.texto) // Opcional: pone el texto actual en el input para editarlo
+      setInfo(encontrada.texto)
+      setFecha(encontrada.fecha)
+      setMateria(encontrada.materia)
     } else {
-      alert('Esa tarea no existe, elige un número del 1 al 3')
+      alert(`Esa tarea no existe, elige un número del 1 al ${tareas.length}`)
     }
   }
 
   function enviarTarea(evento) {
     evento.preventDefault()
+    if (!tareaElegida) return
 
-  
-
+    editarTarea(tareaElegida.id, info, fecha, materia)
     setInfo('')
+    setFecha('')
+    setMateria('')
     navigate('/Tareas')
   }
 
   return (
     <main className="Contenedor">
       <div className="Concuchara">
-        {/* Primer formulario: elegir por número */}
         <form onSubmit={choosen}>
           <label htmlFor="num-tarea">¿Qué tarea?</label>
-          <p>Tarea 1: {tareasFalsas[0].texto}</p>
-          <p>Tarea 2: {tareasFalsas[1].texto}</p>
-          <p>Tarea 3: {tareasFalsas[2].texto}</p>
+          {tareas.map((t, index) => (
+            <p key={t.id}>
+              Tarea {index + 1}: [{t.materia}] {t.texto} - ({t.fecha})
+            </p>
+          ))}
 
           <input
             id="num-tarea"
             type="number"
             min="1"
-            max={tareasFalsas.length}
+            max={tareas.length}
             value={sele}
             onChange={(evento) => setSele(evento.target.value)}
           />
           <button type="submit">Seleccionar</button>
         </form>
 
-        {/* Segundo formulario: editar el texto */}
         <form onSubmit={enviarTarea}>
           <label htmlFor="tarea-input">Editar Tarea</label>
-
-          {/* El signo '?' evita que se rompa si aún no hay tarea elegida */}
           <p>Tarea original: {tareaElegida ? tareaElegida.texto : 'Ninguna seleccionada'}</p>
 
           <input
@@ -70,8 +68,33 @@ function EditarTarea() {
             type="text"
             value={info}
             onChange={(evento) => setInfo(evento.target.value)}
+            disabled={!tareaElegida}
+            required
           />
-          <button type="submit">Guardar cambios</button>
+
+          <label htmlFor="materia-edit">Materia</label>
+          <select
+            id="materia-edit"
+            value={materia}
+            onChange={(evento) => setMateria(evento.target.value)}
+            disabled={!tareaElegida}
+          >
+            {MATERIAS_DISPONIBLES.map((mat) => (
+              <option key={mat} value={mat}>{mat}</option>
+            ))}
+          </select>
+
+          <label htmlFor="fecha-edit">Fecha</label>
+          <input
+            id="fecha-edit"
+            type="date"
+            value={fecha}
+            onChange={(evento) => setFecha(evento.target.value)}
+            disabled={!tareaElegida}
+            required
+          />
+
+          <button type="submit" disabled={!tareaElegida}>Guardar cambios</button>
         </form>
       </div>
     </main>

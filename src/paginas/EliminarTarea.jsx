@@ -1,22 +1,15 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
-const tareasFalsas = [
-  { id: 1, texto: 'Mesa CMEM' },
-  { id: 2, texto: 'Terminar el proyecto de React' },
-  { id: 3, texto: 'Proyecto TDAD' }
-]
+import { useTareas } from '../context/TareasContext'
 
 function EliminarTarea() {
-
-  const [tareas, setTareas] = useState(tareasFalsas)
+  const { tareas, eliminarTarea } = useTareas()
   const [sele, setSele] = useState('')
   const [tareaElegida, setTareaElegida] = useState(null)
   const navigate = useNavigate()
 
   function choosen(evento) {
     evento.preventDefault()
-
     const indice = Number(sele) - 1
     const encontrada = tareas[indice]
 
@@ -29,12 +22,9 @@ function EliminarTarea() {
 
   function eliminarConfirmado(evento) {
     evento.preventDefault()
-
     if (!tareaElegida) return
 
-    const listaActualizada = tareas.filter((tarea) => tarea.id !== tareaElegida.id)
-    setTareas(listaActualizada)
-
+    eliminarTarea(tareaElegida.id)
     setTareaElegida(null)
     setSele('')
     navigate('/Tareas')
@@ -43,13 +33,11 @@ function EliminarTarea() {
   return (
     <main className="Contenedor">
       <div className="Concuchara">
-   
         <form onSubmit={choosen}>
           <label htmlFor="num-tarea">¿Qué tarea deseas eliminar?</label>
-          
           {tareas.map((tarea, index) => (
             <p key={tarea.id}>
-              Tarea {index + 1}: {tarea.texto}
+              Tarea {index + 1}: [{tarea.materia}] {tarea.texto} - ({tarea.fecha})
             </p>
           ))}
 
@@ -64,10 +52,9 @@ function EliminarTarea() {
           <button type="submit">Seleccionar</button>
         </form>
 
-     
         <form onSubmit={eliminarConfirmado}>
           <p>
-            Tarea a eliminar: <strong>{tareaElegida ? tareaElegida.texto : 'Ninguna seleccionada'}</strong>
+            Tarea a eliminar: <strong>{tareaElegida ? `${tareaElegida.texto} (${tareaElegida.materia})` : 'Ninguna seleccionada'}</strong>
           </p>
 
           <button type="submit" disabled={!tareaElegida}>

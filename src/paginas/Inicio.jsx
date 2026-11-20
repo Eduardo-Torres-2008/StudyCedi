@@ -6,23 +6,7 @@ function Inicio() {
 
   return (
     <div>
-      <header className="barra-superior">
-        <a href="/inicio" className="icono">🏠</a>
-
-        <nav className="menu">
-          <a href="/tareas">Tareas</a>
-          <span> | </span>
-          <a href="/horario">Horario</a>
-          <span> | </span>
-          <a href="/materias">Materias</a>
-          <span> | </span>
-          <a href="/avisos">Avisos</a>
-          <span> | </span>
-          <a href="/formularios">Formularios</a>
-        </nav>
-
-        <a href="/perfil" className="icono">👤</a>
-      </header>
+      
 
       
       <main className="contenedor">
