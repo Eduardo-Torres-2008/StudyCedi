@@ -1,0 +1,30 @@
+.materias{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    text-align: left;
+    color:black;
+}
+
+table, th{
+    border: 2px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+th{
+    background-color: lightgray;
+    width: 300px;
+}
+
+td{
+    border-right: 2px solid rgb(0, 0, 0);
+    padding: 5px;
+}
+
+tbody tr:nth-child(even){
+    background-color: rgba(235, 235, 235, 0.897);
+}

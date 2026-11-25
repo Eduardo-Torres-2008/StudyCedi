@@ -1,45 +1,53 @@
-import {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useApp } from '../context/TareasContext'; 
 
 function Login() {
+  const [correo, setCorreo] = useState('');
+  const [pass, setPass] = useState('');
+  const navigate = useNavigate();
+  const { login } = useApp();
 
-    const [correo, setCorreo] = useState("")
-    const [pass, setPass] = useState("")
-    const navigate = useNavigate()
+  function iniciarSesion(evento) {
+    evento.preventDefault();
 
-    function iniciarSesion(evento){
-        evento.preventDefault()
-        setCorreo("")
-        setPass("")
-        navigate("/")
+    const resultado = login(correo.trim());
+
+    if (resultado.exito) {
+      setCorreo('');
+      setPass('');
+      navigate(resultado.ruta);
+    } else {
+      alert('Correo no válido');
     }
+  }
 
-    return(
-        <main>
-            <div>
-               <h2>Inicio de sesion</h2>
-               <div>
-                   <form onSubmit={iniciarSesion}>
-                       <input
-                            type='email'
-                            placeholder='Correo electronico'
-                            value={correo}
-                            onChange={(evento) => setCorreo(evento.target.value)}
-                        />
-                        <input
-                            type='password'
-                            placeholder='Contrasaeña'
-                            value={pass}
-                            onChange = {(evento) => setPass (evento.target. value)}
-                       />
-                       <button type="submit">Iniciar Sesion</button>
-                   </form>
-               </div>
-            </div>
-        </main>
-    )
-
-
+  return (
+    <main>
+      <div>
+        <h2>Inicio de sesión</h2>
+        <div>
+          <form onSubmit={iniciarSesion}>
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              value={correo}
+              onChange={(evento) => setCorreo(evento.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={pass}
+              onChange={(evento) => setPass(evento.target.value)}
+              required
+            />
+            <button type="submit">Iniciar Sesión</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  );
 }
 
-export default Login
+export default Login;

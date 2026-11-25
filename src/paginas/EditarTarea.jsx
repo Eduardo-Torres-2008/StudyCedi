@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTareas, MATERIAS_DISPONIBLES } from '../context/TareasContext'
+import './EditarTarea.css'
 
 function EditarTarea() {
   const { tareas, editarTarea } = useTareas()
@@ -38,17 +39,18 @@ function EditarTarea() {
   }
 
   return (
-    <main className="Contenedor">
-      <div className="Concuchara">
-        <form onSubmit={choosen}>
+    <main className="editar-pagina">
+      <div className="editar-contenedor">
+        <form className="editar-seleccion" onSubmit={choosen}>
           <label htmlFor="num-tarea">¿Qué tarea?</label>
           {tareas.map((t, index) => (
-            <p key={t.id}>
+            <p className="editar-tarea-item" key={t.id}>
               Tarea {index + 1}: [{t.materia}] {t.texto} - ({t.fecha})
             </p>
           ))}
 
           <input
+          className="editar-input"
             id="num-tarea"
             type="number"
             min="1"
@@ -56,14 +58,15 @@ function EditarTarea() {
             value={sele}
             onChange={(evento) => setSele(evento.target.value)}
           />
-          <button type="submit">Seleccionar</button>
+          <button className="editar-boton" type="submit">Seleccionar</button>
         </form>
 
-        <form onSubmit={enviarTarea}>
+        <form className="editar-formulario" onSubmit={enviarTarea}>
           <label htmlFor="tarea-input">Editar Tarea</label>
           <p>Tarea original: {tareaElegida ? tareaElegida.texto : 'Ninguna seleccionada'}</p>
 
           <input
+            className="editar-input"
             id="tarea-input"
             type="text"
             value={info}
@@ -74,6 +77,7 @@ function EditarTarea() {
 
           <label htmlFor="materia-edit">Materia</label>
           <select
+            className="editar-input"
             id="materia-edit"
             value={materia}
             onChange={(evento) => setMateria(evento.target.value)}
@@ -86,6 +90,7 @@ function EditarTarea() {
 
           <label htmlFor="fecha-edit">Fecha</label>
           <input
+            className="editar-input"
             id="fecha-edit"
             type="date"
             value={fecha}
@@ -94,7 +99,7 @@ function EditarTarea() {
             required
           />
 
-          <button type="submit" disabled={!tareaElegida}>Guardar cambios</button>
+          <button className="editar-boton" type="submit" disabled={!tareaElegida}>Guardar cambios</button>
         </form>
       </div>
     </main>

@@ -1,0 +1,148 @@
+.tareas-pagina {
+  min-height: 100vh;
+  padding: 35px;
+  background-color: #F5F6FA;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.tareas-titulo {
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.tareas-titulo h1 {
+  color: #303060;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.tareas-titulo p {
+  color: #777777;
+  font-size: 15px;
+}
+
+.tareas-contenedor {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.tareas-tarjeta {
+  background: white;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #E1E6EF;
+  box-shadow: 0 3px 10px rgba(48, 48, 96, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.tareas-tarjeta h2 {
+  color: #303060;
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.tareas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tareas-item {
+  background-color: #F5F7FB;
+  border-left: 4px solid #5479B8;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.tareas-item p {
+  color: #555555;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.tareas-item strong {
+  color: #303060;
+}
+
+.tareas-item span {
+  color: #5479B8;
+  font-weight: bold;
+}
+
+.tareas-item em {
+  color: #777777;
+  font-style: italic;
+}
+
+.tareas-vacio {
+  background-color: #E5F0FF;
+  padding: 16px;
+  border-radius: 8px;
+  color: #303060;
+  text-align: center;
+}
+
+.tareas-vacio p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.tareas-acciones {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tareas-link {
+  flex: 1;
+  min-width: 160px;
+  text-decoration: none;
+}
+
+.tareas-boton {
+  width: 100%;
+  background-color: #303060;
+  color: #FFFFFF;
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tareas-boton:hover:not(:disabled) {
+  background-color: #465B91;
+}
+
+.tareas-boton-secundario:not(:disabled) {
+  background-color: #5479B8;
+}
+
+.tareas-boton-secundario:hover:not(:disabled) {
+  background-color: #42639B;
+}
+
+.tareas-boton-peligro:not(:disabled) {
+  background-color: #C94A4A;
+}
+
+.tareas-boton-peligro:hover:not(:disabled) {
+  background-color: #A83838;
+}
+
+.tareas-boton:disabled {
+  background-color: #AEB8C9;
+  cursor: not-allowed;
+}
+
+
+

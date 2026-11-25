@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { TareasProvider } from './context/TareasContext'
+import { AppProvider } from './context/TareasContext'
 import Tareas from "./paginas/Tareas"
 import CrearTarea from "./paginas/CrearTarea"
 import EditarTarea from "./paginas/EditarTarea"
@@ -9,12 +9,13 @@ import Inicio from "./paginas/Inicio"
 import Materias from "./paginas/Materias"
 import Avisos from "./paginas/Avisos"
 import Horario from "./paginas/Horario"
+import EditarAvisos from "./paginas/EditarAvisos"
 import Header from "./componentes/Header"
 import './App.css'
 
 function App() {
   return (
-    <TareasProvider>
+    <AppProvider>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -27,9 +28,10 @@ function App() {
           <Route path="/CrearTarea" element={<CrearTarea />} />
           <Route path="/EditarTarea" element={<EditarTarea />} />
           <Route path="/EliminarTarea" element={<EliminarTarea />} />
+          <Route path="/EditarAvisos" element={<EditarAvisos />} />
         </Routes>
       </BrowserRouter>
-    </TareasProvider>
+    </AppProvider>
   )
 }
 

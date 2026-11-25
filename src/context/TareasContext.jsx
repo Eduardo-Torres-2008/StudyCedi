@@ -1,10 +1,9 @@
 import { createContext, useState, useContext } from 'react';
 
-const TareasContext = createContext();
+const AppContext = createContext();
 
 export const MATERIAS_DISPONIBLES = [
-  'CMEM', 'TDAD', 'ARCM', 'MA', 'AAD', 
-  'TW', 'CS', 'DSW', 'MCAI', 'MTDF'
+  'CMEM', 'TDAD', 'ARCM', 'MA', 'AAD', 'TW', 'CS', 'DSW', 'MCAI', 'MTDF', 'OTRAS'
 ];
 
 const TAREAS_INICIALES = [
@@ -13,16 +12,55 @@ const TAREAS_INICIALES = [
   { id: 3, texto: 'Proyecto TDAD', fecha: '2026-11-26', materia: 'TDAD' }
 ];
 
-export function TareasProvider({ children }) {
+const AVISOS_INICIALES = [
+  {
+    id: 1,
+    titulo: "Cambio de fecha de examen",
+    descripcion: "El examen de Física se cambió para el día 2 de diciembre.",
+    fecha: "25 de noviembre, 2026",
+    categoria: "Cambio de fecha: ",
+    tipo: "cambio",
+  },
+  {
+    id: 2,
+    titulo: "Aviso académico",
+    descripcion: "Se recuerda a todos los alumnos revisar el material de estudio publicado para las próximas evaluaciones.",
+    fecha: "24 de noviembre, 2026",
+    categoria: "Importante: ",
+    tipo: "importante",
+  },
+];
+
+export function AppProvider({ children }) {
+ 
+  const [usuario, setUsuario] = useState(null); 
+
+    function login(correo) {
+    if (correo.endsWith('@portalcedi.edu.mx')) {
+      setUsuario({ correo, rol: 'alumno' });
+      return { exito: true, ruta: '/' }; 
+    } 
+    if (correo.endsWith('@cedi.edu.mx')) {
+      setUsuario({ correo, rol: 'maestro' });
+      return { exito: true, ruta: '/' }; 
+    }
+    return { exito: false };
+  }
+
+
+  function logout() {
+    setUsuario(null);
+  }
+
+ 
   const [tareas, setTareas] = useState(TAREAS_INICIALES);
 
+  function pendientesPorMateria(materia) {
+    return tareas.filter((t) => t.materia === materia);
+  }
+
   function agregarTarea(texto, fecha, materia) {
-    const nueva = {
-      id: Date.now(),
-      texto,
-      fecha,
-      materia
-    };
+    const nueva = { id: Date.now(), texto, fecha, materia };
     setTareas([...tareas, nueva]);
   }
 
@@ -40,18 +78,52 @@ export function TareasProvider({ children }) {
     setTareas(tareas.filter((t) => t.id !== id));
   }
 
+
+  const [avisos, setAvisos] = useState(AVISOS_INICIALES);
+
+  function agregarAviso(titulo, descripcion, tipo) {
+    
+    if (usuario?.rol !== 'maestro') return;
+
+    const fechaActual = new Date().toLocaleDateString('es-MX', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+
+    const nuevoAviso = {
+      id: Date.now(),
+      titulo,
+      descripcion,
+      fecha: fechaActual,
+      categoria: tipo === 'cambio' ? 'Cambio de fecha: ' : 'Importante: ',
+      tipo, 
+    };
+
+    setAvisos([nuevoAviso, ...avisos]);
+  }
+
   return (
-    <TareasContext.Provider
+    <AppContext.Provider
       value={{
+        usuario,
+        login,
+        logout,
+        esMaestro: usuario?.rol === 'maestro',
+        esAlumno: usuario?.rol === 'alumno',
         tareas,
+        pendientesPorMateria,
         agregarTarea,
         editarTarea,
-        eliminarTarea
+        eliminarTarea,
+        avisos,
+        agregarAviso,
       }}
     >
       {children}
-    </TareasContext.Provider>
+    </AppContext.Provider>
   );
 }
 
-export const useTareas = () => useContext(TareasContext);
+export const useApp = () => useContext(AppContext);
+export const useTareas = useApp;

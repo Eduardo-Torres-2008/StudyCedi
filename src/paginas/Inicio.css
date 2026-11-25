@@ -1,3 +1,8 @@
+.pagina-inicio {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+}
+
 .contenedor {
   width: min(960px, calc(100% - 32px));
   margin: 32px auto;
@@ -8,33 +13,134 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 5px;
   margin-bottom: 24px;
 }
 
+.izquierda {
+  display: flex;
+  align-items: left;
+  gap: 16px;
+  width: 75%;
+}
+
+.lupa {
+  width: 30px;
+  height: 30px;
+  
+}
+
 .buscador {
-  width: min(420px, 70%);
+  width: 100%;
   padding: 10px 14px;
   border: 1px solid #d8d8e8;
-  border-radius: 8px;
+  border-radius: 10px;
   box-sizing: border-box;
   font: inherit;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+}
+
+.buscador:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 .caja-grupo {
   font-weight: 700;
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #c7d2fe;
 }
 
 .cuadro-bienvenida {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 24px;
+  text-align: center;
+  gap: 10px;
+  padding: 32px 24px;
+  margin-bottom: 20px;
   border-radius: 16px;
-  background: #f5f7ff;
+  background: linear-gradient(135deg, #eef2ff 0%, #f5f7ff 100%);
+  border: 1px solid #e0e7ff;
 }
 
 .cuadro-bienvenida h1 {
   margin: 0;
+  font-size: 1.8rem;
+  color: #1e1b4b;
+}
+
+.subtitulo {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.cuadro-informativo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #f5f7ff;
+  border: 1px solid #e0e7ff;
+}
+
+.resumen-grid {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tarjeta-dato {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 160px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.tarjeta-dato .numero {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #4f46e5;
+}
+
+.tarjeta-dato .etiqueta {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.recordatorio {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .tareas-pagina {
+    padding: 20px 14px;
+  }
+  .tareas-tarjeta {
+    padding: 20px;
+  }
+  .tareas-titulo h1 {
+    font-size: 25px;
+  }
+  .tareas-acciones {
+    flex-direction: column;
+  }
 }
