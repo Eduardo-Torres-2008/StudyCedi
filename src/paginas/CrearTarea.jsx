@@ -37,7 +37,7 @@ function CrearTarea() {
               id="tarea-input"
               className="crear-input"
               type="text"
-              placeholder="Ej. Investigar sobre arquitectura cliente-servidor"
+              placeholder="Ej. Proyecto CMEM"
               value={info}
               onChange={(evento) => setInfo(evento.target.value)}
               required

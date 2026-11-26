@@ -13,7 +13,7 @@ function Tareas() {
       </div>
 
       <div className="tareas-contenedor">
-        {/* Tarjeta 1: Listado de tareas */}
+        
         <div className="tareas-tarjeta">
           <h2>Lista de actividades ({tareas.length})</h2>
 
@@ -36,9 +36,9 @@ function Tareas() {
           )}
         </div>
 
-        {/* Tarjeta 2: Botones de navegación */}
+        
         <div className="tareas-tarjeta">
-          <h2>Acciones</h2>
+          
           <div className="tareas-acciones">
             <Link to="/CrearTarea" className="tareas-link">
               <button type="button" className="tareas-boton">

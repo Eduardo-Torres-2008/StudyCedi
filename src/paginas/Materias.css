@@ -1,30 +1,101 @@
-.materias{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main {
+  min-height: 100vh;
+  padding: 35px;
+  background: linear-gradient(180deg, #e9dfba 60%, #cdcdcd 100%);
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-table{
-    text-align: left;
-    color:black;
+.materias {
+  max-width: 800px;
+  margin: auto;
+  background-color: #FFFFFF;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #E1E6EF;
+  box-shadow: 0 3px 10px rgba(48, 48, 96, 0.06);
+  overflow-x: auto;
+  box-sizing: border-box;
 }
 
-table, th{
-    border: 2px solid rgb(0, 0, 0);
-    border-collapse: collapse;
-    padding: 5px;
+.materias table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
 }
 
-th{
-    background-color: lightgray;
-    width: 300px;
+.materias thead th {
+  color: #303060;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid #E1E6EF;
 }
 
-td{
-    border-right: 2px solid rgb(0, 0, 0);
-    padding: 5px;
+.materias thead th:nth-child(2) {
+  text-align: center;
 }
 
-tbody tr:nth-child(even){
-    background-color: rgba(235, 235, 235, 0.897);
+.materias tbody tr {
+  background-color: #F5F7FB;
+  transition: 0.25s;
+}
+
+.materias tbody tr:hover {
+  background-color: #EBF1FA;
+}
+
+.materias tbody td {
+  padding: 13px 14px;
+  font-size: 14px;
+  color: #555555;
+  border-top: 1px solid #E1E6EF;
+  border-bottom: 1px solid #E1E6EF;
+}
+
+
+.materias tbody td:first-child {
+  font-weight: bold;
+  color: #303060;
+  border-left: 4px solid #027000;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  transition: 0.3s;
+}
+
+.materias tbody tr:hover td:first-child {
+  border-left-width: 14px;
+}
+
+
+.materias tbody td:nth-child(2) {
+  text-align: center;
+  font-weight: bold;
+  color: #085c00;
+  font-size: 15px;
+}
+
+
+.materias tbody td:last-child {
+  color: #5479B8;
+  border-right: 1px solid #E1E6EF;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 20px 14px;
+  }
+
+  .materias {
+    padding: 18px 14px;
+  }
+
+  .materias thead th,
+  .materias tbody td {
+    padding: 10px 10px;
+    font-size: 13px;
+  }
 }

@@ -1,7 +1,7 @@
 .crear-pagina {
   min-height: 100vh;
   padding: 35px;
-  background-color: #F5F6FA;
+  background: linear-gradient(180deg, #e9dfba 60%, #cdcdcd 100%);
   font-family: Arial, sans-serif;
   box-sizing: border-box;
 }
@@ -12,7 +12,7 @@
 }
 
 .crear-titulo h1 {
-  color: #303060;
+  color: #475569;
   font-size: 30px;
   margin-bottom: 8px;
 }
@@ -31,7 +31,7 @@
 }
 
 .crear-formulario {
-  background: white;
+  background: linear-gradient(0deg, #ffffff 80%, #197f009c 100%);
   padding: 28px;
   border-radius: 14px;
   border: 1px solid #E1E6EF;
@@ -66,19 +66,19 @@
   border: 1px solid #D5DCE8;
   border-radius: 8px;
   background-color: #F9FAFC;
-  color: #333333;
+  color: #000000;
   font-size: 14px;
   font-family: inherit;
   outline: none;
 }
 
 .crear-input:focus {
-  border-color: #5479B8;
-  box-shadow: 0 0 0 3px rgba(84, 121, 184, 0.12);
+  border-color: #079500;
+  box-shadow: 0 0 0 3px rgba(0, 162, 11, 0.575);
 }
 
 .crear-boton {
-  background-color: #303060;
+  background-color: #00a508;
   color: #FFFFFF;
   border: none;
   padding: 13px;
@@ -91,7 +91,7 @@
 }
 
 .crear-boton:hover:not(:disabled) {
-  background-color: #465B91;
+  background-color: #085c00;
 }
 
 .crear-boton:disabled {

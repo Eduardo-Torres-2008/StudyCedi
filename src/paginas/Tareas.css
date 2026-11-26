@@ -1,9 +1,10 @@
 .tareas-pagina {
   min-height: 100vh;
   padding: 35px;
-  background-color: #F5F6FA;
+  background: linear-gradient(180deg, #e9dfba 60%, #cdcdcd 100%);
   font-family: Arial, sans-serif;
   box-sizing: border-box;
+  
 }
 
 .tareas-titulo {
@@ -12,7 +13,7 @@
 }
 
 .tareas-titulo h1 {
-  color: #303060;
+  color: #475569;
   font-size: 30px;
   margin-bottom: 8px;
 }
@@ -55,9 +56,14 @@
 
 .tareas-item {
   background-color: #F5F7FB;
-  border-left: 4px solid #5479B8;
+  border-left: 4px solid #027000;
   border-radius: 8px;
   padding: 12px 14px;
+  transition: 0.3s;
+}
+
+.tareas-item:hover {
+  border-left: 30px solid #027000;
 }
 
 .tareas-item p {

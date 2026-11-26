@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useApp } from '../context/TareasContext'; 
+import { useApp } from '../context/TareasContext';
+import './Login.css';
 
 function Login() {
   const [correo, setCorreo] = useState('');
@@ -23,12 +24,13 @@ function Login() {
   }
 
   return (
-    <main>
-      <div>
-        <h2>Inicio de sesión</h2>
-        <div>
-          <form onSubmit={iniciarSesion}>
+    <main className="login-pagina">
+      <div className="login-contenedor">
+        <div className="login-tarjeta">
+          <h2>Inicio de sesión</h2>
+          <form className="login-formulario" onSubmit={iniciarSesion}>
             <input
+              className="login-input"
               type="email"
               placeholder="Correo electrónico"
               value={correo}
@@ -36,13 +38,16 @@ function Login() {
               required
             />
             <input
+              className="login-input"
               type="password"
               placeholder="Contraseña"
               value={pass}
               onChange={(evento) => setPass(evento.target.value)}
               required
             />
-            <button type="submit">Iniciar Sesión</button>
+            <button type="submit" className="login-boton">
+              Iniciar Sesión
+            </button>
           </form>
         </div>
       </div>

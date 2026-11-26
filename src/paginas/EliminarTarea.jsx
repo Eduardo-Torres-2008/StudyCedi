@@ -39,7 +39,7 @@ function EliminarTarea() {
       </div>
 
       <div className="eliminar-contenedor">
-        {/* Tarjeta 1: Selección de tarea */}
+       
         <div className="eliminar-seleccion">
           <h2>1. Elige una tarea</h2>
           <form onSubmit={choosen}>

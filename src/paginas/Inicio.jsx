@@ -1,10 +1,13 @@
 import { useState } from "react";
 import "./Inicio.css";
 import { Search } from "lucide-react";
+import { useTareas } from "../context/TareasContext";
 
 
-function Inicio({ tareas = [], avisos = [] }) {
+function Inicio() {
   const [busqueda, setBusqueda] = useState("");
+  const { tareas } = useTareas()
+  const { avisos } = useTareas();
 
   return (
     <div className="pagina-inicio">

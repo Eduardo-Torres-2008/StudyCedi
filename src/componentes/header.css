@@ -1,6 +1,6 @@
 header {
-    background-color: white;
-    padding: 20px 40px;
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 20px ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,20 +9,42 @@ header {
 
 header nav {
     display: flex;
-    gap: 25px;
 }
 
 
 header nav a {
-    color: rgb(55, 123, 224);
+    color: rgb(255, 255, 255);
+    background-color: #006812;
     text-decoration: none;
     font-size: 17px;
     padding: 8px 12px;
     transition: 0.3s;
+    
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid rgb(0, 0, 0);
+    
     border-right: 1px solid rgb(0, 0, 0);
+    border-left: 1px solid rgb(0, 0, 0);
+    
+    
     text-align: center;
     justify-content: center;
+    
 }
+
+header nav a:hover {
+ transform: scale(1.05);
+ box-shadow: 0 8px 20px rgba(12, 138, 0, 0.2);
+ outline: 2px solid #006812;
+ border-color: transparent;
+ border-radius: 15px;
+ color:#006812;
+ background-color: white;
+
+}
+
+
+
 
 .user-link{
     color: rgb(0, 0, 0);
@@ -30,7 +52,10 @@ header nav a {
     font-size: 17px;
     padding: 8px 12px;
     transition: 0.3s;
+    
 }
+
+
 
 .house-link{
     color: rgb(0, 0, 0);

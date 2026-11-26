@@ -1,15 +1,15 @@
 
 
-/* Fondo general */
+
 .editar-pagina {
   min-height: 100vh;
   padding: 35px;
-  background-color: #F5F6FA;
+  background: linear-gradient(180deg, #e9dfba 60%, #cdcdcd 100%);
   font-family: Arial, sans-serif;
   box-sizing: border-box;
 }
 
-/* Contenedor principal */
+
 .editar-contenedor {
   max-width: 800px;
   margin: auto;
@@ -18,7 +18,7 @@
   gap: 25px;
 }
 
-/* Formularios */
+
 .editar-seleccion,
 .editar-formulario {
   background-color: #FFFFFF;
@@ -31,7 +31,7 @@
   gap: 13px;
 }
 
-/* Etiquetas */
+
 .editar-seleccion label,
 .editar-formulario label {
   color: #303060;
@@ -40,19 +40,23 @@
   margin-bottom: 5px;
 }
 
-/* Lista de tareas */
+
 .editar-tarea-item {
   background-color: #F5F7FB;
-  border-left: 4px solid #5479B8;
+  border-left: 4px solid #027000;
   border-radius: 8px;
   padding: 12px 14px;
   color: #555555;
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
+  transition: 0.3s;
 }
 
-/* Párrafo de tarea original */
+.editar-tarea-item:hover {
+  border-left: 30px solid #027000;
+}
+
 .editar-formulario p {
   color: #666666;
   font-size: 14px;
@@ -60,7 +64,7 @@
   margin: 4px 0;
 }
 
-/* Inputs y select */
+
 .editar-input {
   width: 100%;
   box-sizing: border-box;
@@ -73,23 +77,23 @@
   outline: none;
 }
 
-/* Efecto al seleccionar un campo */
+
 .editar-input:focus {
-  border-color: #5479B8;
+  border-color: #008910;
   box-shadow: 0 0 0 3px rgba(84, 121, 184, 0.12);
 }
 
-/* Campos desactivados */
+
 .editar-input:disabled {
   background-color: #ECEFF4;
   color: #999999;
   cursor: not-allowed;
 }
 
-/* Botones */
+
 .editar-boton {
-  background-color: #303060;
-  color: #FFFFFF;
+  background-color: #085c00;
+  color: #bcbcbc;
   border: none;
   padding: 13px;
   border-radius: 8px;
@@ -100,18 +104,19 @@
   transition: 0.2s;
 }
 
-/* Efecto hover */
+
 .editar-boton:hover:not(:disabled) {
-  background-color: #465B91;
+  background-color: #0da100;
+  color: white
 }
 
-/* Botones desactivados */
+
 .editar-boton:disabled {
-  background-color: #AEB8C9;
+  background-color: #c4f2c3;
   cursor: not-allowed;
 }
 
-/* Diseño adaptable a celulares */
+
 @media (max-width: 600px) {
   .editar-pagina {
     padding: 20px 14px;
