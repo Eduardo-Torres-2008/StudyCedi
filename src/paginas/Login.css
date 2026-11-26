@@ -1,7 +1,8 @@
 .login-pagina {
   min-height: 100vh;
   padding: 35px;
-  background: linear-gradient(180deg, #e9dfba 60%, #cdcdcd 100%);
+    background: linear-gradient(180deg, #73f193c0 60%, #cdcdcd 100%);
+  background-size: cover;
   font-family: Arial, sans-serif;
   box-sizing: border-box;
   display: flex;
@@ -16,6 +17,8 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+    background: transparent;
+    border-radius: 8px;
 }
 
 .login-tarjeta {

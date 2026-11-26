@@ -1,7 +1,9 @@
 .pagina-inicio {
   font-family: system-ui, -apple-system, sans-serif;
   color: #1e293b;
-  background: linear-gradient(180deg, #e9dfba 60%, #cdcdcd 100%);
+  background: linear-gradient(180deg, #73f193c0 60%, #cdcdcd 100%);
+  background-size: cover;
+  
   padding-bottom: 20px;
   padding-top: 15px;
 }
@@ -10,7 +12,8 @@
   width: min(960px, calc(100% - 32px));
   margin: 32px auto;
   box-sizing: border-box;
-
+  background: transparent;
+  border-radius: 8px;
 }
 
 .fila-superior {

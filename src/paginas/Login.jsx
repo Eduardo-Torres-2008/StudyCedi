@@ -14,10 +14,11 @@ function Login() {
 
     const resultado = login(correo.trim());
 
+
     if (resultado.exito) {
       setCorreo('');
       setPass('');
-      navigate(resultado.ruta);
+      navigate("/");
     } else {
       alert('Correo no válido');
     }

@@ -41,7 +41,7 @@ function Materias(){
                         <tr>
                             <td>DSW</td>
                             <td>{pendientesPorMateria('DSW').length}</td>
-                            <td>osantoyo@cedi.edu.mx</td>
+                            <td>osantollo@cedi.edu.mx</td>
                             
                         </tr>
                         <tr>
