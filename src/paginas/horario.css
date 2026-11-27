@@ -1,0 +1,48 @@
+body{
+    background-color: white;
+    margin: 0;
+}
+
+.contenedor-horario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+}
+
+.dias{
+    border-bottom: 1px solid black;
+}
+
+.pri {
+    border-right: 1px solid black;
+    
+}
+
+.segun {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.tercer {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.ult{
+    border-top: 1px solid black;
+}
+
+.tabla-horario {
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+    text-align: center;
+
+    border-radius: 10px;
+}
+
+.tabla-horario th, .tabla-horario td {
+    padding: 15px;
+}
